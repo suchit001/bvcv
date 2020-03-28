@@ -1,0 +1,49 @@
+<html>
+<head>
+</head>
+<body>
+<!-- 	<form class="form" id="myForm">
+		<input type="text" name="username" id="username">
+		<input type="password" name="password" id="password">
+		<button type="submit">Submit</button>
+	</form> -->
+	<button id="getdata">Get Data</button>
+
+<script type="text/javascript">
+	// const myForm = document.getElementById('myForm');
+	// myForm.addEventListener('submit',function(e){
+	// 	e.preventDefault();
+	// 	const formdata = new FormData(this);
+	// 	console.log(formdata);
+	// 	fetch('login.php',{
+	// 		method: 'post',
+	// 		body: formdata
+	// 	}).then(function(response){
+	// 		return response.text();
+	// 	}).then(function(text){
+	// 		console.log(text);
+	// 	}).catch(function(error){
+	// 		console.error(error);
+	// 	})
+	// })
+	document.getElementById('getdata').addEventListener('click',getAPI);
+	// function getAPI(){
+	// 	fetch('http://192.168.0.65:3000/employee/disp')
+	// 	.then((res)=> res.json())
+	// 	.then((data) =>console.log(data))
+	// 	.catch((err)=>console.log(err))
+	// }
+	// console.log("..");
+	const data = {"username":"srihari","password":"srihari"};
+	var send = JSON.parse('{"username":"srihari","password":"srihari"}')
+	console.log(send);
+	function getAPI(){
+		fetch('http://192.168.0.65:3000/employee/login',{
+			method: 'post',
+			body: data,
+		}).then((res)=>res.json())
+		.then((data)=>console.log(data))
+	}
+</script>
+</body>
+</html>
